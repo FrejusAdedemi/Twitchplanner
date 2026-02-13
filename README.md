@@ -85,7 +85,7 @@ CREATE DATABASE twitchplanner;
 \q
 
 # Importer le schéma
-psql -U postgres -d twitchplanner -f database.sql
+psql -U postgres -d twitchplanner -f twitchplanner.sql
 ```
 
 #### Méthode 2 : Avec pgAdmin
@@ -93,7 +93,7 @@ psql -U postgres -d twitchplanner -f database.sql
 1. Ouvrir pgAdmin
 2. Créer une nouvelle base de données : `twitchplanner`
 3. Clic droit sur la base → Query Tool
-4. Ouvrir et exécuter le fichier `database.sql`
+4. Ouvrir et exécuter le fichier `twichplanner.sql`
 
 ### 4. Créer le dossier uploads
 
@@ -192,16 +192,14 @@ twitchplanner/
 │   │   ├── planningRoutes.js  # Routes des plannings
 │   │   ├── eventRoutes.js     # Routes des événements
 │   │   ├── userRoutes.js      # Routes utilisateur/profil
-│   │   └── uploadRoutes.js    # Routes d'upload de fichiers
+│   │   └── uploadRoutes.js    
 │   ├── middleware/
-│   │   └── auth.js            # Middleware de vérification JWT
-│   ├── uploads/               # Dossier des fichiers uploadés
-│   ├── database.sql           # Schéma de la base de données
+│   │   └── auth.js             
 │   ├── package.json
-│   ├── .env.example
+│   ├── .env
 │   └── .gitignore
 │
-├── front/                      # Application React
+├── frontend/                      # Application React
 │   ├── src/
 │   │   ├── pages/             # Pages de l'application
 │   │   │   ├── Auth.jsx
@@ -216,7 +214,6 @@ twitchplanner/
 │   │   ├── services/          # Services API
 │   │   │   └── api.ts
 │   │   └── main.tsx           # Point d'entrée
-│   ├── public/
 │   ├── package.json
 │   ├── .env.example
 │   └── vite.config.ts
@@ -335,8 +332,6 @@ npm run dev        # Démarrer avec nodemon (auto-reload)
 
 ```bash
 npm run dev        # Démarrer en mode développement
-npm run build      # Build de production
-npm run preview    # Prévisualiser le build
 ```
 
 ## 📚 Contexte du Projet
